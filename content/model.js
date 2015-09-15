@@ -28,7 +28,7 @@ module.exports = {
         {
             url: '/partners/',
             title: 'Сотрудничество',
-            source: './content/partners.ru.bemjson.js'
+            source: './content/partners.ru.md'
         },
         {
             url: '/money/',
