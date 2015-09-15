@@ -1,0 +1,10 @@
+.logo
+{
+    display: inline-block;
+
+    width: 141px;
+    height: 163px;
+    margin: 0 22px 0 15px;
+
+    background: url(logo.png) no-repeat;
+}

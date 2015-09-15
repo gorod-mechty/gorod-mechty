@@ -1,0 +1,26 @@
+// TODO: keep it simple
+match(function() {
+    return !this._root;
+})(function() {
+    var data = this.ctx.data,
+        rootUrl = data.rootUrl,
+        site = rootUrl === '/' ? 'index' : rootUrl.split('/')[1];
+
+    var title = data.page.url !== '/' ? data.page.title + ' / ' : '';
+    title += data.rootTitle;
+
+    return applyNext({
+        _root: true,
+        data: data,
+        ctx: {
+            block: 'page',
+            title: title,
+            head: [
+                { elem: 'css', url: '/_index.css' }
+            ],
+            scripts: [
+                { elem: 'js', url: '/_index.js' }
+            ]
+        }
+    });
+});

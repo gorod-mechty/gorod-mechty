@@ -1,0 +1,9 @@
+.page
+{
+    font: 15px Arial, sans-serif;
+
+    /*max-width: 1920px;*/
+
+    margin: auto;
+    padding: 0 5%;
+}

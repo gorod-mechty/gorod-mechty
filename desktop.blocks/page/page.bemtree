@@ -1,0 +1,16 @@
+block('page').content()(function() {
+    return [
+        {
+            block: 'sidebar'
+        },
+        {
+            block: 'nav'
+        },
+        {
+            block: 'content'
+        },
+        {
+            block: 'footer'
+        }
+    ];
+});
