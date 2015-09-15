@@ -70,7 +70,6 @@ function writeResult(page, content, lang, rootUrl) {
         data: {
             page: page,
             rootUrl: rootUrl,
-            rootTitle: config.title[lang],
             model: model[lang],
             lang: lang,
             content: content.toString('utf8')
