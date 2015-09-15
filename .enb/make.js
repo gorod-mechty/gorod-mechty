@@ -56,8 +56,6 @@ module.exports = function(config) {
             // bemhtml
             [techs.bemhtml, { devMode: process.env.BEMHTML_ENV === 'development' }],
 
-            [require('./techs/bemtreeToHtml')],
-
             // client bemhtml
             [enbBemTechs.depsByTechToBemdecl, {
                 target: '?.bemhtml.bemdecl.js',
@@ -92,6 +90,6 @@ module.exports = function(config) {
             [techs.borschik, { sourceTarget: '?.css', destTarget: '_?.css', tech: 'cleancss', freeze: true, minify: isProd }]
         ]);
 
-        nodeConfig.addTargets(['?.bemtree.js', '?.bemhtml.js', /* '?.html', */ '_?.css', '_?.js']);
+        nodeConfig.addTargets(['?.bemtree.js', '?.bemhtml.js', '_?.css', '_?.js']);
     });
 };
