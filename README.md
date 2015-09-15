@@ -1,5 +1,5 @@
 Install:
-npm i
+- npm i
 
 Run:
 - console 1
