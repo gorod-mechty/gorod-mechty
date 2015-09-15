@@ -1,9 +1,9 @@
 Install:
-- npm i
+- `npm i`
 
 Run:
 - console 1
-  npm run watch
+  `npm run watch`
 - console 2
-  npm start
+  `npm start`
 

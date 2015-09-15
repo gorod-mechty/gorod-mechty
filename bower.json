@@ -1,14 +1,14 @@
 {
-  "name": "bem-project-stub",
+  "name": "gorod-mechty",
   "version": "1.0.0",
-  "description": "BEM project stub",
-  "bugs": "https://github.com/bem/project-stub/issues",
+  "description": "",
+  "bugs": "https://github.com/gorod-mechty/gorod-mechty/issues",
   "ignore": [
     ".bem/cache",
     "node_modules",
     "libs"
   ],
   "dependencies": {
-    "bem-components": "2.0.0"
+    "bem-components": "2.3.0"
   }
 }

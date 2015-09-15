@@ -6,9 +6,8 @@
 
 var fs = require('fs'),
     vow = require('../libs/bem-core/common.blocks/vow/vow.vanilla.js'),
-    vm = require('vm'),
     BEMHTML = require('../desktop.bundles/index/index.bemhtml.js').BEMHTML,
-    indexBemtree = fs.readFileSync('desktop.bundles/index/index.bemtree.js'),
+    BEMTREE = require('../desktop.bundles/index/index.bemtree.js').BEMTREE,
     mkdirp = require('mkdirp'),
     rimraf = require('rimraf'),
     http = require('http'),
@@ -21,19 +20,10 @@ langs.map(function(lang) {
     var path = 'output' + '-' + lang;
 //    rimraf.sync(path);
     mkdirp.sync(path);
-    ['_index.css', '_index.js'].forEach(function(file) {
+    ['index.min.css', 'index.min.js'].forEach(function(file) {
         fs.createReadStream('desktop.bundles/index/' + file).pipe(fs.createWriteStream(path + '/' + file));
     });
 });
-
-var ctx = vm.createContext({
-    Vow: vow,
-    console: console
-});
-
-vm.runInContext(indexBemtree, ctx);
-
-var BEMTREE = ctx.BEMTREE;
 
 var sites = require('../content/sites.js'),
     model = require('../content/model.js');
