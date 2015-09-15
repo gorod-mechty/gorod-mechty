@@ -6,11 +6,11 @@ block('footer').content()(function() {
         },
         {
             elem: 'bank-details',
-            content: 'Счет 26003000141343 рубль/гривна<br>ОКПО 38711011 МФО 384577 '
+            content: 'Счет 40703810600001008398<br>БИК 043510101, ИНН 9102169965'
         },
         {
             elem: 'social',
-            content: 'VKontakte, Odno, Facebook'
+            content: 'VKontakte, Odno, Facebook, Twitter'
         }
     ];
 });
