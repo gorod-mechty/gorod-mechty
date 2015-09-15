@@ -1,6 +1,10 @@
-# console 1
-npm run watch
+Install:
+npm i
 
-#console 2
-npm start
+Run
+  console 1
+    npm run watch
+
+  console 2
+    npm start
 
