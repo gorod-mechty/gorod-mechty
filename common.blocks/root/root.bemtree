@@ -1,10 +1,8 @@
 block('root').replace()(function() {
     var data = this.data = this.ctx.data,
-        rootUrl = data.rootUrl,
-        site = rootUrl === '/' ? 'index' : rootUrl.split('/')[1],
         title = data.page.url !== '/' ? data.page.title + ' / ' : '';
 
-    title += data.model[0].title;
+    title += data.pages[0].title;
 
     return {
         block: 'page',
