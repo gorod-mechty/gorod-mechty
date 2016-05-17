@@ -1,3 +1,0 @@
-block('content').content()(function() {
-    return this.data.page.content;
-})

@@ -1,5 +1,4 @@
-.logo
-{
+:block(logo) {
     display: inline-block;
 
     width: 141px;

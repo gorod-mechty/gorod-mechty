@@ -1,46 +1,42 @@
-.footer::before
-{
-    position: absolute;
-    top: 60px;
-
-
-    display: block;
-    content: "";
-
-    width: 100%;
-
-    border-top: 1px solid #000;
-}
-
-.footer
-{
+:block(footer) {
     position: relative;
 
     clear: both;
 
     height: 30px;
     padding: 90px 0 35px;
-}
 
-.footer__contacts
-{
-    display: inline-block;
+    &::before
+    {
+        position: absolute;
+        top: 60px;
 
-    width: 30%;
-}
 
-.footer__bank-details
-{
-    display: inline-block;
+        display: block;
+        content: "";
 
-    width: 30%;
-}
+        width: 100%;
 
-.footer__social
-{
-    display: inline-block;
+        border-top: 1px solid #000;
+    }
 
-    width: 40%;
+    &:elem(contacts) {
+        display: inline-block;
+
+        width: 30%;
+    }
+
+    &:elem(bank-details) {
+        display: inline-block;
+
+        width: 30%;
+    }
+
+    &:elem(social) {
+        display: inline-block;
+
+        width: 40%;
+    }
 }
 
 /*

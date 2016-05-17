@@ -1,8 +1,0 @@
-block('sidebar').content()(function() {
-    return [
-        {
-            block: 'logo',
-            url: this.data.page.url !== '/' ? '/' : undefined
-        }
-    ];
-});

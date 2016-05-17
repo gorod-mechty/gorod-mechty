@@ -1,5 +1,4 @@
 {
-  "author": "",
   "name": "gorod-mechty",
   "version": "1.0.0",
   "repository": {
@@ -7,44 +6,33 @@
     "url": "git://github.com/gorod-mechty/gorod-mechty.git"
   },
   "engines": {
-    "node": ">=4.1"
-  },
-  "dependencies": {
-    "bem-environ": "~1.4.0",
-    "glob": "",
-    "marked": "",
-    "mkdirp": "",
-    "request": "",
-    "rimraf": "",
-    "vow": ""
+    "node": ">=4"
   },
   "devDependencies": {
-    "borschik": "^1.3.0",
-    "borschik-tech-cleancss": "^1.0.0",
-    "bower": "^1.3.12",
+    "bem-core": "bem/bem-core#7231faa449554ce6e2b2fbe79b24509bddff65c5",
+
     "browser-sync": "^2.9.3",
 
-    "enb": "^0.17.2",
-    "enb-bem-techs": "^2.0.0",
-    "enb-borschik": "^2.0.0",
-    "enb-bemxjst": "^2.0.0",
-    "enb-bemxjst-2": "tadatuta/enb-bemxjst#bem-xjst-2x",
+    "enb": "^1.2.0",
+    "enb-bem-techs": "^2.2.1",
+    "enb-bemxjst": "^6.2.1",
+    "enb-borschik": "^2.4.0",
+    "enb-bundle-postcss": "tadatuta/enb-bundle-postcss",
+    "enb-css": "^1.1.0",
+    "enb-js": "^1.1.0",
     "enb-modules": "^0.2.0",
-    "enb-stylus": "^2.0.0",
-    "enb-js": "^1.0.0",
 
-    "stylus": "^0.52.4",
     "gulp": "^3.9.0",
     "gulp-batch": "^1.0.5",
     "gulp-watch": "^4.3.5",
-    "lodash": "^3.10.1",
-    "ym": "^0.1.2"
+
+    "mkdirp": "^0.5.1",
+
+    "postcss-nested": "^1.0.0",
+    "rebem-css": "^0.2.0"
   },
   "scripts": {
-    "postinstall": "[ \"$NODE_ENV\" != 'production' ] && npm run deps || true && npm run compile-stylus && npm run pre",
-    "compile-stylus": "cd libs/bem-components && find . -iname '*.styl' | xargs stylus && cd -",
-    "pre": "rm -rf output-ru && mkdir -p output-ru && cp content/robots.txt content/favicon.ico output-ru && enb make",
-    "deps": "bower i"
+    "postinstall": "rm -rf output && mkdir output && cp content/robots.txt content/favicon.ico output"
   },
   "private": true
 }

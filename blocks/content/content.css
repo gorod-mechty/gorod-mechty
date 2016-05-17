@@ -1,5 +1,4 @@
-.content
-{
+:block(content) {
     padding: 14px;
 
     background: #ddd;

@@ -1,0 +1,35 @@
+:block(nav) {
+    font-size: 18px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    color: #0ac;
+
+    &:elem(item)
+    {
+        display: inline-block;
+
+        margin: 0 4px;
+        padding: 0 10px;
+
+        line-height: 40px;
+
+        &:mod(current)
+        {
+            color: #fff;
+            background: #007722;
+        }
+    }
+
+    &:elem(link)
+    {
+        display: block;
+
+        text-decoration: none;
+
+        color: #000;
+    }
+}

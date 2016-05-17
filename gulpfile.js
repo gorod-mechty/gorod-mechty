@@ -1,107 +1,104 @@
 'use strict';
 
-var browserSync = require('browser-sync'),
-    request = require('request'),
-    mkdirp = require('mkdirp'),
-    marked = require('marked'),
-    gulp = require('gulp'),
+var fs = require('fs'),
+    path = require('path'),
+
     enb = require('enb'),
-    fs = require('fs'),
-    vm = require('vm'),
+    gulp = require('gulp'),
+    browserSync = require('browser-sync'),
     watch = require('gulp-watch'),
-    batch = require('gulp-batch');
+    // batch = require('gulp-batch'),
 
-var langs = ['ru'],
-    outputFolder = 'output-',
-    pages = require('./content/pages.js');
+    mkdirp = require('mkdirp');
 
-var bemhtmlFile = './desktop.bundles/index/index.bemhtml.js',
-    bemtreeFile = './desktop.bundles/index/index.bemtree.js';
+var OUTPUT = 'output',
+    BUNDLE = './bundles/index/index',
+    PAGES = require('./content/pages');
 
-gulp.task('default', ['watch', 'browser-sync'], function () {
-    enb.make();
+var bemhtmlFile = BUNDLE + '.bemhtml.js',
+    bemtreeFile = BUNDLE + '.bemtree.js';
 
-    ['css', 'js'].forEach(function(tech) {
-        langs.forEach(function(lang) {
-            fs.createReadStream('desktop.bundles/index/index.min.' + tech)
-                .pipe(fs.createWriteStream(outputFolder + lang + '/index.min.' + tech));
-        })
-    });
+gulp.task('default', ['browser-sync', 'watch'], enb.make);
 
-    renderPages(require(bemtreeFile).BEMTREE, require(bemhtmlFile).BEMHTML, pages, langs, outputFolder);
-});
-
-gulp.task('browser-sync', function() {
-    console.log('bs');
-    browserSync.init({
-        files: outputFolder + 'ru' + '/**',
-        server: { baseDir: outputFolder + 'ru' },
-        port: 8009,
-        browser: 'firefox',
-        startPath: '/',
+gulp.task('browser-sync', () => {
+    browserSync.create().init({
+        files: OUTPUT + '/**',
+        server: { baseDir: OUTPUT },
+        port: 8080,
+        open: false,
         online: false,
-        notify: false
+        logLevel: 'silent',
+        notify: false,
+        ui: false,
+        middleware: function(req, res, next) {
+            if (req.url.match(/svgd/)) {
+                res.setHeader('Content-Type', 'image/svg+xml');
+                res.setHeader('Content-Encoding', 'deflate')
+            }
+            next();
+        }
     });
 });
 
-gulp.task('watch', function () {
-
+gulp.task('watch', () => {
     // watch changes in blocks and build using enb
-    watch(['*blocks/**/*'], function batch(events, done) {
-        enb.make();
-    });
+    watch(['blocks/**/*'], enb.make);
 
-    // watch changes in final css and js and copy it to output folders
-    watch('desktop.bundles/index/index.min.*', function (vinyl) {
-        langs.forEach(function(lang) {
-            vinyl.pipe(fs.createWriteStream(outputFolder + lang + '/' + vinyl.basename));
-        });
+    // watch changes in final css and js and copy it to output folder
+    watch(BUNDLE + '.min.*', vinyl => {
+        vinyl.pipe(fs.createWriteStream(OUTPUT + '/' + vinyl.basename));
     });
 
     // watch changes in content and bemtree/bemhtml bundles and rebuild pages
-    watch(['content/**/*', 'desktop.bundles/index/index.bemhtml.js', 'desktop.bundles/index/index.bemtree.js'], function batch(events, done) {
-        delete require.cache[require.resolve(bemtreeFile)];
-        delete require.cache[require.resolve(bemhtmlFile)];
-        renderPages(require(bemtreeFile).BEMTREE, require(bemhtmlFile).BEMHTML, pages, langs, outputFolder);
+    watch(['content/**/*', bemtreeFile, bemhtmlFile], () => {
+        var cwd = process.cwd();
+
+        delete require.cache[path.join(cwd, bemtreeFile)];
+        delete require.cache[path.join(cwd, bemhtmlFile)];
+
+        var bemtree = require(bemtreeFile).BEMTREE,
+            bemhtml = require(bemhtmlFile).BEMHTML;
+
+        PAGES.forEach(page => {
+            render(bemtree, bemhtml, PAGES, page, OUTPUT);
+        });
     });
 });
 
-function applyTemplates(bemtree, bemhtml, pages, page, lang, outputFolder, content) {
+function render(bemtree, bemhtml, pages, page, OUTPUT/*, content*/) {
 
-    page.content = content;
+    // page.content = content;
+    page.content = page.source;
 
-    bemtree.apply({
+    var bemjson = bemtree.apply({
         block: 'root',
         data: {
             page: page,
-            pages: pages[lang],
-            lang: lang
+            pages: pages
         }
-    }).then(function(bemjson) {
-        bemjson.block = 'page';
-
-        var dirName = outputFolder + lang + page.url;
-
-        mkdirp(dirName);
-        fs.writeFile(dirName + '/index.html', bemhtml.apply(bemjson));
-    }).fail(function(e){
-        console.log('Error:', e);
     });
+
+    var dirName = OUTPUT + page.url;
+
+    mkdirp.sync(dirName);
+console.log(dirName + 'index.html');
+    fs.writeFile(dirName + 'index.html', bemhtml.apply(bemjson));
 }
 
-function render(bemtree, bemhtml, pages, page, lang, outputFolder) {
+/*
+function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
 
     var renderInner = function(err, content) {
         var type = page.type || 'md'
         if (type === 'md') {
-            marked(content, function(err, content) { applyTemplates(bemtree, bemhtml, pages, page, lang, outputFolder, content) });
+            marked(content, function(err, content) { applyTemplates(bemtree, bemhtml, pages, page, lang, OUTPUT, content) });
         } else if (type === 'bemjson.js') {
-            applyTemplates(bemtree, bemhtml, pages, page, lang, outputFolder, bemhtml.apply(vm.runInNewContext(content)));
+            applyTemplates(bemtree, bemhtml, pages, page, lang, OUTPUT, bemhtml.apply(vm.runInNewContext(content)));
         } else {
             throw "Unknown type";
         }
     };
-    
+
     var source = page.source;
 
     if (/^http/.test(source)) {
@@ -118,14 +115,7 @@ function render(bemtree, bemhtml, pages, page, lang, outputFolder) {
     }
 }
 
-function renderPages(bemtree, bemhtml, pages, langs, outputFolder) {
-    langs.forEach(function(lang) {
-        pages[lang].forEach(function(page) {
-            render(bemtree, bemhtml, pages, page, lang, outputFolder);
-        })
-    });
-}
-
+*/
 // function html(vinyl) {
 //     if (!vinyl || !vinyl.contents) return;
 
