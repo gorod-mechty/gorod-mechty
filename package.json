@@ -9,7 +9,7 @@
     "node": ">=4"
   },
   "devDependencies": {
-    "bem-core": "bem/bem-core#7231faa449554ce6e2b2fbe79b24509bddff65c5",
+    "bem-core": "^3.0.1",
 
     "browser-sync": "^2.9.3",
 
