@@ -9,16 +9,35 @@ var fs = require('fs'),
     watch = require('gulp-watch'),
     // batch = require('gulp-batch'),
 
-    mkdirp = require('mkdirp');
+    rimraf = require('rimraf'),
 
-var OUTPUT = 'output',
+    generate = require('./lib/generate');
+
+var ROOT = (process.env.YENV === 'production' ? '' : '/gorod-mechty'),
+    OUTPUT = 'output',
+    OUTPUT_ROOT = OUTPUT + ROOT,
+    STATIC = 'static',
     BUNDLE = './bundles/index/index',
     PAGES = require('./content/pages');
 
-var bemhtmlFile = BUNDLE + '.bemhtml.js',
-    bemtreeFile = BUNDLE + '.bemtree.js';
+function render() {
+    generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT);
+}
 
-gulp.task('default', ['browser-sync', 'watch'], enb.make);
+gulp.task('default', ['build', 'browser-sync', 'watch']);
+
+gulp.task('build', () => {
+    rimraf.sync(OUTPUT);
+
+    gulp.src(path.join(STATIC, 'index.html')).pipe(gulp.dest(OUTPUT));
+    gulp.src(path.join(STATIC, '{favicon.ico,robots.txt,.nojekyll}')).pipe(gulp.dest(OUTPUT_ROOT));
+
+    enb.make();
+
+    gulp.src(path.join(BUNDLE + '.min.{css,js}')).pipe(gulp.dest(OUTPUT_ROOT));
+
+    render();
+});
 
 gulp.task('browser-sync', () => {
     browserSync.create().init({
@@ -46,44 +65,12 @@ gulp.task('watch', () => {
 
     // watch changes in final css and js and copy it to output folder
     watch(BUNDLE + '.min.*', vinyl => {
-        vinyl.pipe(fs.createWriteStream(OUTPUT + '/' + vinyl.basename));
+        vinyl.pipe(fs.createWriteStream(OUTPUT_ROOT + '/' + vinyl.basename));
     });
 
     // watch changes in content and bemtree/bemhtml bundles and rebuild pages
-    watch(['content/**/*', bemtreeFile, bemhtmlFile], () => {
-        var cwd = process.cwd();
-
-        delete require.cache[path.join(cwd, bemtreeFile)];
-        delete require.cache[path.join(cwd, bemhtmlFile)];
-
-        var bemtree = require(bemtreeFile).BEMTREE,
-            bemhtml = require(bemhtmlFile).BEMHTML;
-
-        PAGES.forEach(page => {
-            render(bemtree, bemhtml, PAGES, page, OUTPUT);
-        });
-    });
+    watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], render);
 });
-
-function render(bemtree, bemhtml, pages, page, OUTPUT/*, content*/) {
-
-    // page.content = content;
-    page.content = page.source;
-
-    var bemjson = bemtree.apply({
-        block: 'root',
-        data: {
-            page: page,
-            pages: pages
-        }
-    });
-
-    var dirName = OUTPUT + page.url;
-
-    mkdirp.sync(dirName);
-console.log(dirName + 'index.html');
-    fs.writeFile(dirName + 'index.html', bemhtml.apply(bemjson));
-}
 
 /*
 function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
