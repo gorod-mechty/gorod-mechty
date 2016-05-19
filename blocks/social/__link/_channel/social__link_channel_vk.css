@@ -1,0 +1,9 @@
+.social__link_channel_vk
+{
+    background: rgb(217, 217, 217) url(social__link_channel_vk.svg);
+}
+
+.social__link_channel_vk:hover
+{
+    background-color: rgb(71, 117, 161);
+}

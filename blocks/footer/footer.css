@@ -1,4 +1,9 @@
 :block(footer) {
+    margin: 40px 0 60px 0;
+}
+
+/*
+:block(footer) {
     position: relative;
 
     clear: both;
@@ -38,7 +43,7 @@
         width: 40%;
     }
 }
-
+*/
 /*
 @media (max-width: 768px) {
 .footer {

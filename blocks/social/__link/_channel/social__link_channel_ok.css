@@ -1,0 +1,9 @@
+.social__link_channel_ok
+{
+    background: rgb(217, 217, 217) url(social__link_channel_ok.svg);
+}
+
+.social__link_channel_ok:hover
+{
+    background-color: rgb(248, 113, 51);
+}
