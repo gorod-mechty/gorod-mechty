@@ -8,10 +8,11 @@ block('root').replace()(node => {
         block: 'page',
         title: title,
         head: [
-            { elem: 'css', url: '/index.min.css' }
+            { elem: 'css', url: data.root + '/index.min.css' }
         ],
+        favicon: data.root + '/favicon.ico'
         scripts: [
-            { elem: 'js', url: '/index.min.js' }
+            { elem: 'js', url: data.root + '/index.min.js' }
         ]
     };
 });
