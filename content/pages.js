@@ -5,9 +5,9 @@ module.exports = [
         source: 'Главная страница'
     },
     {
-        url: '/fund/',
+        url: '/about/',
         title: 'О фонде',
-        source: './content/fund.ru.md'
+        source: 'О фонде'
     },
     {
         url: '/projects/',
@@ -18,27 +18,5 @@ module.exports = [
         url: '/projects/100-trees/',
         title: '100 деревьев',
         source: '100 деревьев'
-    },
-    {
-        url: '/news/',
-        title: 'Новости',
-        source: 'Новости'
-    },
-    {
-        url: '/partners/',
-        title: 'Сотрудничество',
-        source: './content/partners.ru.bemjson.js',
-        type: 'bemjson.js'
-    },
-    {
-        url: '/money/',
-        title: 'Деньги',
-        source: 'Деньги'
-    },
-    {
-        url: '/contacts/',
-        title: 'Контакты',
-        source: 'Контакты'
     }
 ];
-
