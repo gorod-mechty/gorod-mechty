@@ -11,8 +11,8 @@ block('root').replace()(node => {
             { elem: 'css', url: data.root + '/index.min.css' }
         ],
         favicon: data.root + '/favicon.ico'
-        scripts: [
-            { elem: 'js', url: data.root + '/index.min.js' }
-        ]
+        // scripts: [
+        //     { elem: 'js', url: data.root + '/index.min.js' }
+        // ]
     };
 });

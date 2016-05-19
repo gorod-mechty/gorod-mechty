@@ -11,7 +11,7 @@ var techs = {
         postcss: require('enb-bundle-postcss/techs/enb-bundle-postcss'),
 
         // js
-        browserJs: require('enb-js/techs/browser-js'),
+        // browserJs: require('enb-js/techs/browser-js'),
 
         // bemtree
         bemtree: require('enb-bemxjst/techs/bemtree'),
@@ -69,17 +69,17 @@ module.exports = config => {
             }],
 
             // js
-            [techs.browserJs, {
-                sourceSuffixes: ['js'],
-                target: '?.js',
-                includeYM: true
-            }],
+            // [techs.browserJs, {
+            //     sourceSuffixes: ['js'],
+            //     target: '?.js',
+            //     includeYM: true
+            // }],
 
             // // borschik
-            [techs.borschik, { source: '?.js', target: '?.min.js', minify: isProd }],
+            // [techs.borschik, { source: '?.js', target: '?.min.js', minify: isProd }],
             [techs.borschik, { source: '?.css', target: '?.min.css', minify: isProd }]
         ]);
 
-        nodeConfig.addTargets(['?.bemtree.js', '?.bemhtml.js', '?.min.css', '?.min.js']);
+        nodeConfig.addTargets(['?.bemtree.js', '?.bemhtml.js', '?.min.css'/*, '?.min.js'*/]);
     });
 };
