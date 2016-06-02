@@ -7,7 +7,7 @@ var fs = require('fs'),
     gulp = require('gulp'),
     browserSync = require('browser-sync'),
     watch = require('gulp-watch'),
-    // batch = require('gulp-batch'),
+    batch = require('gulp-batch'),
 
     rimraf = require('rimraf'),
 
@@ -24,19 +24,26 @@ function render() {
     generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT);
 }
 
-gulp.task('default', ['build', 'browser-sync', 'watch']);
+gulp.task('clean', (done) => {
+    return rimraf(OUTPUT, done);
+});
 
-gulp.task('build', () => {
-    rimraf.sync(OUTPUT);
+gulp.task('enb', enb.make);
 
+gulp.task('prepare', (done) => {
     gulp.src(path.join(STATIC, 'index.html')).pipe(gulp.dest(OUTPUT));
     gulp.src(path.join(STATIC, '{favicon.ico,robots.txt,.nojekyll}')).pipe(gulp.dest(OUTPUT_ROOT));
+    done();
+});
 
-    enb.make();
-
+gulp.task('static', (done) => {
     gulp.src(path.join(BUNDLE + '.min.{css,js}')).pipe(gulp.dest(OUTPUT_ROOT));
+    done();
+});
 
+gulp.task('render', (done) => {
     render();
+    done();
 });
 
 gulp.task('browser-sync', () => {
@@ -61,7 +68,9 @@ gulp.task('browser-sync', () => {
 
 gulp.task('watch', () => {
     // watch changes in blocks and build using enb
-    watch(['blocks/**/*'], enb.make);
+    watch(['blocks/**/*'], batch((event, done) => {
+        enb.make().then(done);
+    }));
 
     // watch changes in final css and js and copy it to output folder
     watch(BUNDLE + '.min.*', vinyl => {
@@ -69,8 +78,13 @@ gulp.task('watch', () => {
     });
 
     // watch changes in content and bemtree/bemhtml bundles and rebuild pages
-    watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], render);
+    watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], batch((event, done) => {
+        render();
+        done();
+    }));
 });
+
+gulp.task('default', gulp.series('clean', 'prepare', 'enb', 'static', 'render', gulp.parallel('browser-sync', 'watch')));
 
 /*
 function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
