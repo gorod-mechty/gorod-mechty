@@ -9,28 +9,28 @@
     "node": ">=4"
   },
   "devDependencies": {
-    "bem-core": "^3.0.1",
+    "bem-core": "bem/bem-core#4eaad0943edf1ce827af1630414c596c4be98867",
 
-    "browser-sync": "^2.9.3",
+    "browser-sync": "^2.16.0",
 
-    "enb": "^1.2.0",
+    "enb": "^1.4.0",
     "enb-bem-techs": "^2.2.1",
-    "enb-bemxjst": "^6.2.1",
+    "enb-bemxjst": "^8.0.0",
     "enb-borschik": "^2.4.0",
     "enb-bundle-postcss": "tadatuta/enb-bundle-postcss",
-    "enb-css": "^1.1.0",
+    "enb-css": "^1.2.2",
     "enb-js": "^1.1.0",
-    "enb-modules": "^0.2.0",
+    "enb-modules": "^0.3.0",
 
     "gulp": "gulpjs/gulp#4.0",
     "gulp-batch": "^1.0.5",
-    "gulp-watch": "^4.3.5",
+    "gulp-watch": "^4.3.9",
 
     "mkdirp": "^0.5.1",
 
     "postcss-nested": "^1.0.0",
     "rebem-css": "^0.2.0",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.4"
   },
   "private": true
 }
