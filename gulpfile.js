@@ -1,49 +1,46 @@
 'use strict';
 
-var fs = require('fs'),
-    path = require('path'),
+const fs = require('fs');
+const path = require('path');
+const enb = require('enb');
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const watch = require('gulp-watch');
+const batch = require('gulp-batch');
+const rimraf = require('rimraf');
 
-    enb = require('enb'),
-    gulp = require('gulp'),
-    browserSync = require('browser-sync'),
-    watch = require('gulp-watch'),
-    batch = require('gulp-batch'),
+const generate = require('./lib/generate');
 
-    rimraf = require('rimraf'),
+const ROOT = (process.env.YENV === 'production' ? '' : '/gorod-mechty');
+const OUTPUT = 'output';
+const OUTPUT_ROOT = OUTPUT + ROOT;
+const STATIC = 'static';
+const BUNDLE = './bundles/index/index';
+const PAGES = require('./content/pages');
 
-    generate = require('./lib/generate');
-
-var ROOT = (process.env.YENV === 'production' ? '' : '/gorod-mechty'),
-    OUTPUT = 'output',
-    OUTPUT_ROOT = OUTPUT + ROOT,
-    STATIC = 'static',
-    BUNDLE = './bundles/index/index',
-    PAGES = require('./content/pages');
-
-function render() {
-    generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT);
+function render(done) {
+    generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT).then(() => {
+        done();
+    });
 }
 
-gulp.task('clean', (done) => {
-    return rimraf(OUTPUT, done);
-});
+gulp.task('clean', done => rimraf(OUTPUT, done));
 
 gulp.task('enb', enb.make);
 
-gulp.task('prepare', (done) => {
+gulp.task('prepare', done => {
     gulp.src(path.join(STATIC, 'index.html')).pipe(gulp.dest(OUTPUT));
     gulp.src(path.join(STATIC, '{favicon.ico,robots.txt,.nojekyll}')).pipe(gulp.dest(OUTPUT_ROOT));
     done();
 });
 
-gulp.task('static', (done) => {
+gulp.task('static', done => {
     gulp.src(path.join(BUNDLE + '.min.{css,js}')).pipe(gulp.dest(OUTPUT_ROOT));
     done();
 });
 
-gulp.task('render', (done) => {
-    render();
-    done();
+gulp.task('render', done => {
+    render(done);
 });
 
 gulp.task('browser-sync', () => {
@@ -79,8 +76,7 @@ gulp.task('watch', () => {
 
     // watch changes in content and bemtree/bemhtml bundles and rebuild pages
     watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], batch((event, done) => {
-        render();
-        done();
+        render(done);
     }));
 });
 

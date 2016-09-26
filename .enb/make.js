@@ -22,7 +22,7 @@ var techs = {
     enbBemTechs = require('enb-bem-techs'),
     levels = [
         { path: 'node_modules/bem-core/common.blocks', check: false },
-        { path: 'node_modules/bem-core/touch.blocks', check: false },
+        { path: 'node_modules/bem-core/desktop.blocks', check: false },
 /*
         { path: 'libs/bem-components/common.blocks', check: false },
         { path: 'libs/bem-components/desktop.blocks', check: false },
