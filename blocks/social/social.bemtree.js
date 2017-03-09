@@ -2,23 +2,23 @@ block('social').content()(() => {
     var channels = [
         {
             channel: 'fb',
-            title: 'Facebook',
-            url: 'https://facebook.com/bla'
+            title: 'FaceBook',
+            url: 'https://www.facebook.com/groups/598279340197050/'
         },
         {
             channel: 'tw',
-            title: 'Facebook',
-            url: 'https://facebook.com/bla'
+            title: 'Twitter',
+            url: 'https://twitter.com/gorod_mechty'
         },
         {
             channel: 'vk',
-            title: 'Facebook',
-            url: 'https://facebook.com/bla'
+            title: 'ВКонтакте',
+            url: 'http://vk.com/gorod.mechty'
         },
         {
             channel: 'ok',
-            title: 'Facebook',
-            url: 'https://facebook.com/bla'
+            title: 'Однокласники',
+            url: 'http://www.odnoklassniki.ru/group/54637469958162'
         },
     ];
 

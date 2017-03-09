@@ -13,5 +13,11 @@
         &:last-child {
             margin-right: 0;
         }
+
+        &:mod(type phone) {
+            :block(link) {
+                color: rgb(20, 20, 20);
+            }
+        }
     }
 }

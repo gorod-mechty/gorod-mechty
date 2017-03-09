@@ -1,5 +1,7 @@
 :block(footer) {
+    border-top: 1px solid rgb(217, 217, 217);
     margin: 40px 0 60px 0;
+    padding-top: 40px;
 }
 
 /*
