@@ -2,7 +2,7 @@ block('social').content()(() => {
     var channels = [
         {
             channel: 'fb',
-            title: 'FaceBook',
+            title: 'Facebook',
             url: 'https://www.facebook.com/groups/598279340197050/'
         },
         {
@@ -13,12 +13,12 @@ block('social').content()(() => {
         {
             channel: 'vk',
             title: 'ВКонтакте',
-            url: 'http://vk.com/gorod.mechty'
+            url: 'https://vk.com/gorod.mechty'
         },
         {
             channel: 'ok',
-            title: 'Однокласники',
-            url: 'http://www.odnoklassniki.ru/group/54637469958162'
+            title: 'Одноклаcсники',
+            url: 'https://ok.ru/group/54637469958162'
         },
     ];
 

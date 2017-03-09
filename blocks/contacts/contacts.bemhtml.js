@@ -3,11 +3,12 @@ block('contacts')(
     elem('contact')(
         tag()('li'),
         content()(function() {
-            var link = this.ctx.elemMods.type === 'phone' ? 'tel' : 'mailto';
+            var url = applyNext();
+
             return {
                 block: 'link',
-                attrs: { href: `${link}:${this.ctx.content}` },
-                content: this.ctx.content
+                url: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url,
+                content: url
             };
         })
     )
