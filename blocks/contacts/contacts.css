@@ -1,5 +1,4 @@
-:block(contacts)
-{
+:block(contacts) {
     display: flex;
     justify-content: center;
 

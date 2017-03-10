@@ -1,5 +1,4 @@
-.contacts__link
-{
+:block(contacts):elem(link) {
     &:link {
         color: rgb(73, 166, 227);
         text-decoration: none;

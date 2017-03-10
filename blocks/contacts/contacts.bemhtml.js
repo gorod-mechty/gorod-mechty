@@ -6,8 +6,9 @@ block('contacts')(
             var url = applyNext();
 
             return {
-                elem: 'link',
-                attrs: { href: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url },
+                block: 'link',
+                mix: { block: 'contacts', elem: 'link' },
+                url: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url,
                 content: url
             };
         })
