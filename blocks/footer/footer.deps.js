@@ -1,7 +1,6 @@
 ({
     shouldDeps: [
         'contacts',
-        'social',
-        'link'
+        'social'
     ]
 });

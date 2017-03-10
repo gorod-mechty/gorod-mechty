@@ -1,0 +1,11 @@
+.contacts__link
+{
+    &:link {
+        color: rgb(73, 166, 227);
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: rgb(20, 20, 20);
+    }
+}

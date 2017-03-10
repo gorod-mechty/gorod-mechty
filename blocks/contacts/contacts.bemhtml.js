@@ -6,8 +6,8 @@ block('contacts')(
             var url = applyNext();
 
             return {
-                block: 'link',
-                url: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url,
+                elem: 'link',
+                attrs: { href: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url },
                 content: url
             };
         })
