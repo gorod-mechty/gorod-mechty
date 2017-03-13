@@ -1,4 +1,4 @@
-block('footer').content()([
+block('page-foot').content()([
     {
         block: 'contacts'
     },

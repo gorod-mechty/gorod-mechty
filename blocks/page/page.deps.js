@@ -3,6 +3,6 @@
         'sidebar',
         'nav',
         'content',
-        'footer'
+        'page-foot'
     ]
-})
+});

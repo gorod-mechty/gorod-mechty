@@ -9,6 +9,6 @@ block('page').content()([
         block: 'content'
     },
     {
-        block: 'footer'
+        block: 'page-foot'
     }
 ]);
