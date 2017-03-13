@@ -2,7 +2,7 @@
     shouldDeps: [
         'sidebar',
         'nav',
-        'content',
+        'page-body',
         'page-foot'
     ]
 });

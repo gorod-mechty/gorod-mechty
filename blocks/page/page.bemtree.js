@@ -6,7 +6,7 @@ block('page').content()([
         block: 'nav'
     },
     {
-        block: 'content'
+        block: 'page-body'
     },
     {
         block: 'page-foot'
