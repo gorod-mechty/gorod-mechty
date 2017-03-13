@@ -1,7 +1,6 @@
 ({
     shouldDeps: [
-        'sidebar',
-        'nav',
+        'page-head',
         'page-body',
         'page-foot'
     ]

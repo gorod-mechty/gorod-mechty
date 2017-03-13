@@ -1,9 +1,7 @@
 block('page').content()([
     {
-        block: 'sidebar'
-    },
-    {
-        block: 'nav'
+        block: 'page-head',
+        mix: { block: 'page', elem: 'head' },
     },
     {
         block: 'page-body'
