@@ -44,16 +44,21 @@ module.exports = config => {
             [enbBemTechs.deps],
             [enbBemTechs.files],
 
-            // // css
+            // css
             [techs.css, {
-                target: '?.pre.css',
-                // TODO: move to postcss
-                autoprefixer: { browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%'] }
+                target: '?.pre.css'
             }],
 
             [techs.postcss, {
                 source: '?.pre.css',
-                plugins: [require('rebem-css'), require('postcss-nested')]
+                sourceSuffixes: ['pcss', 'post.css', 'css'],
+                oneOfSourceSuffixes: [['pcss', 'css'], ['post.css', 'css']],
+                plugins: [
+                    require('precss'),
+                    require('pobem'),
+                    require('postcss-url')({ url: 'inline' }),
+                    require('autoprefixer')({ browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%'] })
+                ]
             }],
 
             // bemtree
