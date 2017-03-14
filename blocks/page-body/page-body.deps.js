@@ -2,6 +2,7 @@
     shouldDeps: [
         'content',
         'text',
-        'text-about'
+        'text-about',
+        'requisites'
     ]
 });

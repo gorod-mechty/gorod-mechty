@@ -14,5 +14,8 @@
     },
     {
         block: 'text-about'
+    },
+    {
+        block: 'requisites'
     }
 ];

@@ -1,0 +1,63 @@
+$margin_block: 20px;
+
+block(requisites) {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 55px;
+
+    elem(title) {
+        font-size: 30px;
+
+        flex: 1 1 100%;
+
+        margin-top: 0;
+    }
+
+    elem(items) {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 calc(50% - $margin_block);
+        justify-content: space-between;
+        align-items: baseline;
+
+        margin-right: $margin_block;
+    }
+
+    elem(donate) {
+        flex: 1 1 calc(50% - $margin_block);
+
+        margin-left: $margin_block;
+    }
+
+    elem(item-title) {
+        font-size: 13px;
+
+        flex: 1 1 50%;
+
+        color: rgb(153, 153, 153);
+    }
+
+    elem(item-description) {
+        flex: 1 1 50%;
+
+        margin-bottom: 10px;
+        margin-left: 0;
+    }
+
+    elem(link) {
+        line-height: 40px;
+
+        display: inline-block;
+
+        width: 191px;
+        height: 40px;
+
+        text-align: center;
+        text-decoration: none;
+
+        color: rgb(255, 255, 255);
+        border-radius: 3px;
+        background-color: rgb(30, 207, 109);
+    }
+}
