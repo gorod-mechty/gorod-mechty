@@ -40,7 +40,10 @@ gulp.task('static', done => {
 });
 
 gulp.task('copy:img', done => {
-    gulp.src(['blocks/logo/logo.{png,svg}']).pipe(gulp.dest(OUTPUT_ROOT));
+    gulp.src([
+        'blocks/logo/logo.{png,svg}',
+        'blocks/page-title/*.png',
+    ]).pipe(gulp.dest(OUTPUT_ROOT));
     done();
 });
 
@@ -129,5 +132,3 @@ function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
 
 //     applyTemplates(page, lang, vinyl.contents.toString('utf8'));
 // }
-
-

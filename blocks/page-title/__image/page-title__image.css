@@ -1,0 +1,9 @@
+block(page-title).elem(image) {
+    position: relative;
+    z-index: 100;
+    left: 50%;
+
+    max-width: 1920px;
+
+    transform: translate(-50%, 0);
+}
