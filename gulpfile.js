@@ -43,6 +43,7 @@ gulp.task('copy:img', done => {
     gulp.src([
         'blocks/logo/logo.{png,svg}',
         'blocks/page-title/*.png',
+        'blocks/text-about/*.png',
     ]).pipe(gulp.dest(OUTPUT_ROOT));
     done();
 });

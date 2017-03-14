@@ -1,0 +1,4 @@
+block(text-about).elem(content) {
+    flex: 1 1 auto;
+    margin-left: 20px;
+}

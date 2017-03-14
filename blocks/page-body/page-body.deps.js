@@ -1,5 +1,7 @@
 ({
     shouldDeps: [
-        'content'
+        'content',
+        'text',
+        'text-about'
     ]
 });

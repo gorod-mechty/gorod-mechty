@@ -1,0 +1,5 @@
+block(page-body) {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
