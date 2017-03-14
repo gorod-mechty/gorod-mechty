@@ -17,5 +17,8 @@
     },
     {
         block: 'requisites'
+    },
+    {
+        block: 'contact-form'
     }
 ];

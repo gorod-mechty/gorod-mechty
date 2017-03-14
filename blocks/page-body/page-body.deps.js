@@ -3,6 +3,7 @@
         'content',
         'text',
         'text-about',
-        'requisites'
+        'requisites',
+        'contact-form'
     ]
 });

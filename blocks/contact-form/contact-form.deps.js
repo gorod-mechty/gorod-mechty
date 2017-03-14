@@ -1,0 +1,7 @@
+({
+    shouldDeps: [
+        'input',
+        'textarea',
+        'button'
+    ]
+});
