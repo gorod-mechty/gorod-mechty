@@ -57,6 +57,7 @@
         block: 'requisites'
     },
     {
-        block: 'contact-form'
+        block: 'contact-form',
+        action: ''
     }
 ];

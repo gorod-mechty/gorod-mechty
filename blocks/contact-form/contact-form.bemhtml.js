@@ -1,6 +1,6 @@
 block('contact-form')(
     tag()('form'),
-    attrs()(
-        { action: '' }
-    )
+    attrs()(function() {
+        return { action: this.ctx.action };
+    })
 );
