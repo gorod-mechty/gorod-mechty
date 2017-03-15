@@ -11,30 +11,8 @@
     }
 
     elem(nav) {
-        font-size: 18px;
-
         display: flex;
         flex: 10;
         justify-content: flex-end;
-
-        block(nav).elem(item) {
-            margin: 0 20px;
-
-            line-height: 44px;
-
-            &:mod(current)
-            {
-                color: rgb(26, 175, 93);
-                border-bottom: 3px solid rgb(26, 175, 93);
-            }
-        }
-
-        block(nav).elem(link) {
-            display: block;
-
-            text-decoration: none;
-
-            color: #000;
-        }
     }
 }

@@ -8,4 +8,23 @@
 
     color: #0ac;
 
+    elem(item) {
+        margin: 0 20px;
+
+        line-height: 44px;
+
+        &:mod(current)
+        {
+            color: rgb(26, 175, 93);
+            border-bottom: 3px solid rgb(26, 175, 93);
+        }
+    }
+
+    elem(link) {
+        display: block;
+
+        text-decoration: none;
+
+        color: #000;
+    }
 }
