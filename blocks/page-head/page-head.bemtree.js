@@ -1,6 +1,6 @@
-block('page-head').content()(function() {
-    var data = this.data,
-        url  = data.page.url;
+block('page-head').content()(node => {
+    const data = node.data;
+    const url = data.page.url;
 
     return [
         {
@@ -14,4 +14,3 @@ block('page-head').content()(function() {
         }
     ];
 });
-

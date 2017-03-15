@@ -1,7 +1,7 @@
 block('page-title').content()(node => {
-    var root  = node.data.root,
-        src   = node.data.page.titleImage,
-        title = node.data.page.title;
+    const root = node.data.root;
+    const src = node.data.page.titleImage;
+    const title = node.data.page.title;
 
     return [
         {

@@ -1,5 +1,5 @@
-block('nav').content()(function() {
-    var data = this.data;
+block('nav').content()(node => {
+    const data = node.data;
 
     return data.pages.filter(function(item) {
         // Добавляем в навигацию только адреса вида /page/
@@ -7,7 +7,7 @@ block('nav').content()(function() {
         return item.url.split('/').length === 3;
     }).map(function(item) {
 
-        var isCurrent = this.data.page.url === item.url;
+        var isCurrent = node.data.page.url === item.url;
 
         return {
             elem: 'item',
@@ -18,5 +18,5 @@ block('nav').content()(function() {
                 content: item.title
             }
         };
-    }, this);
+    }, node);
 });

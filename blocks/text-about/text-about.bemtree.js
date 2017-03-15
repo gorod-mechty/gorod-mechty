@@ -1,5 +1,5 @@
 block('text-about').content()(node => {
-    var root = node.data.root;
+    const root = node.data.root;
 
     return [
         {
