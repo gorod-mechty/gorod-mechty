@@ -1,5 +1,3 @@
-block('page-body').content()([
-    {
-        block: 'content'
-    }
-]);
+block('page-body').content()(node => {
+    return node.data.page.content;
+});
