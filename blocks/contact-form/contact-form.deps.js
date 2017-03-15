@@ -2,6 +2,7 @@
     shouldDeps: [
         'input',
         'textarea',
-        'button'
+        'button',
+        { elem: 'title' }
     ]
 });

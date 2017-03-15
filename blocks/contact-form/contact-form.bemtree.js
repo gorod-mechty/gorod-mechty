@@ -1,7 +1,6 @@
 block('contact-form').content()([
     {
         elem: 'title',
-        tag: 'h2',
         content: 'Напишите нам'
     },
     {
