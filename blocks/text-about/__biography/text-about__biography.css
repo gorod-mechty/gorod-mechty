@@ -1,4 +1,4 @@
-block(text-about).elem(content) {
+block(text-about).elem(biography) {
     flex: 1 1 auto;
     margin-left: 20px;
 }

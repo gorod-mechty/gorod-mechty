@@ -1,7 +1,9 @@
 ({
     shouldDeps: [
+        'contacts',
         { elem: 'photo' },
-        { elem: 'content' },
-        'contacts'
+        { elem: 'biography' },
+        { elem: 'title' },
+        { elem: 'activity' }
     ]
 });

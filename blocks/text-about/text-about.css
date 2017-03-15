@@ -6,7 +6,7 @@ block(text-about) {
 
     background-color: rgb(242, 242, 242);
 
-    elem(fio) {
+    elem(title) {
         font-size: 30px;
 
         margin-bottom: 0;

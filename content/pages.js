@@ -7,7 +7,7 @@ module.exports = [
     {
         url: '/about/',
         title: 'О фонде',
-        titleImage: 'title.jpg',
+        titleImage: './about/title.jpg',
         source: './about/content.bemjson.js',
         type: 'bemjson.js'
     },

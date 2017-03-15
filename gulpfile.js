@@ -42,8 +42,7 @@ gulp.task('static', done => {
 gulp.task('copy:img', done => {
     gulp.src([
         'blocks/logo/logo.svg',
-        'blocks/page-title/*.jpg',
-        'blocks/text-about/*.jpg',
+        'content/**/*.jpg'
     ]).pipe(gulp.dest(OUTPUT_ROOT));
     done();
 });
