@@ -5,7 +5,7 @@ block('text-about').content()(node => {
         {
             elem: 'photo',
             attrs: {
-                src: `${root}/text-about__photo.png`,
+                src: `${root}/photo.jpg`,
                 alt: 'Директор'
             }
         },
