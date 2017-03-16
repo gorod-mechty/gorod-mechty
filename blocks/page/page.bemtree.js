@@ -1,14 +1,15 @@
 block('page').content()([
     {
-        block: 'sidebar'
+        block: 'page-head',
+        mix: { block: 'page', elem: 'head' },
     },
     {
-        block: 'nav'
+        block: 'page-title',
     },
     {
-        block: 'content'
+        block: 'page-body'
     },
     {
-        block: 'footer'
+        block: 'page-foot'
     }
 ]);

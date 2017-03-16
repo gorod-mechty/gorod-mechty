@@ -8,24 +8,19 @@
 
     color: #0ac;
 
-    &:elem(item)
-    {
-        display: inline-block;
+    elem(item) {
+        margin: 0 20px;
 
-        margin: 0 4px;
-        padding: 0 10px;
-
-        line-height: 40px;
+        line-height: 44px;
 
         &:mod(current)
         {
-            color: #fff;
-            background: #007722;
+            color: rgb(26, 175, 93);
+            border-bottom: 3px solid rgb(26, 175, 93);
         }
     }
 
-    &:elem(link)
-    {
+    elem(link) {
         display: block;
 
         text-decoration: none;

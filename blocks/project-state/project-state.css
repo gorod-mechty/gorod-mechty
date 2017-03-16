@@ -1,0 +1,14 @@
+$line_height: 28px;
+
+block(project-state) {
+    line-height: $line_height;
+    font-size: 11px;
+
+    padding: 0 15px;
+
+    text-transform: uppercase;
+
+    color: white;
+    border-radius: calc($line_height / 2);
+    background-color: rgb(44, 151, 222);
+}
