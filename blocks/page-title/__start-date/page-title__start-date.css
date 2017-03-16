@@ -1,0 +1,13 @@
+block(page-title).elem(start-date) {
+    line-height: 28px;
+    font-size: 13px;
+
+    position: absolute;
+    z-index: 4;
+    top: 125px;
+    left: 50%;
+
+    transform: translate(-233px, 0);
+
+    color: white;
+}

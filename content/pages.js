@@ -6,6 +6,7 @@ module.exports = [
     },
     {
         url: '/about/',
+        navItem: 'О фонде',
         title: 'О фонде',
         titleImage: './about/title.jpg',
         source: './about/content.bemjson.js',
@@ -13,8 +14,11 @@ module.exports = [
     },
     {
         url: '/projects/',
-        title: 'Проекты',
-        source: 'Проекты'
+        navItem: 'Проекты',
+        title: 'Сквер у Крымского этнографического музея',
+        titleImage: './projects/title.jpg',
+        source: './projects/content.bemjson.js',
+        type: 'bemjson.js'
     },
     {
         url: '/projects/100-trees/',

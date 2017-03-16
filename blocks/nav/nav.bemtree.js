@@ -12,10 +12,10 @@ block('nav').content()(node => {
         return {
             elem: 'item',
             elemMods: { current: isCurrent },
-            content: isCurrent ? item.title : {
+            content: isCurrent ? item.navItem : {
                 elem: 'link',
                 attrs: { href: data.root + item.url },
-                content: item.title
+                content: item.navItem
             }
         };
     }, node);

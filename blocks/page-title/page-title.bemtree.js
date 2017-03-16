@@ -5,6 +5,15 @@ block('page-title').content()(node => {
 
     return [
         {
+            block: 'project-state',
+            mix: { block: 'page-title', elem: 'state' },
+            content: 'в процессе'
+        },
+        {
+            elem: 'start-date',
+            content: 'с 12 октября 2015'
+        },
+        {
             elem: 'text',
             content: title
         },

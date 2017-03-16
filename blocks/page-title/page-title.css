@@ -17,4 +17,13 @@ block(page-title) {
 
         background-color: rgba(0, 0, 0, 0.5);
     }
+
+    elem(state) {
+        position: absolute;
+        z-index: 4;
+        top: 125px;
+        left: 50%;
+
+        transform: translate(-340px, 0);
+    }
 }
