@@ -1,4 +1,4 @@
-block('page-title').content()(node => {
+block('page-neck').content()(node => {
     const root = node.data.root;
     const src = node.data.page.titleImage;
     const title = node.data.page.title;

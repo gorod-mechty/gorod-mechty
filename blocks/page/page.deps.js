@@ -1,7 +1,7 @@
 ({
     shouldDeps: [
         'page-head',
-        'page-title',
+        'page-neck',
         'page-body',
         'page-foot'
     ]

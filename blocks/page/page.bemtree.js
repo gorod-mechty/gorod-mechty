@@ -4,7 +4,7 @@ block('page').content()([
         mix: { block: 'page', elem: 'head' },
     },
     {
-        block: 'page-title',
+        block: 'page-neck',
     },
     {
         block: 'page-body'

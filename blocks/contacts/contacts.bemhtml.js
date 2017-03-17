@@ -3,7 +3,7 @@ block('contacts')(
     elem('contact')(
         tag()('li'),
         content()(node => {
-            var url = applyNext();
+            const url = applyNext();
 
             return {
                 block: 'link',

@@ -1,6 +1,4 @@
 block('input')(
     tag()('input'),
-    attrs()(node => {
-        return { placeholder: node.ctx.placeholder };
-    })
+    attrs()(node => ({ placeholder: node.ctx.placeholder }))
 );
