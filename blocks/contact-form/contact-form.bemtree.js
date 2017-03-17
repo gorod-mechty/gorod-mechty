@@ -4,23 +4,23 @@ block('contact-form').content()([
         content: 'Напишите нам'
     },
     {
-        block : 'input',
-        mix: { block: 'contact-form', elem: 'input' },
-        placeholder : 'Имя и фамилия'
+        block: 'input',
+        mix: { block: 'contact-form', elem: 'input', elemMods: { first: true } },
+        placeholder: 'Имя и фамилия'
     },
     {
-        block : 'input',
+        block: 'input',
         mix: { block: 'contact-form', elem: 'input' },
-        placeholder : 'Электронная почта'
+        placeholder: 'Электронная почта'
     },
     {
-        block : 'textarea',
+        block: 'textarea',
         mix: { block: 'contact-form', elem: 'textarea' },
-        placeholder : 'Сообщение'
+        placeholder: 'Сообщение'
     },
     {
-        block : 'button',
-        mix: { block: 'contact-form', elem: 'button', elemMods: { disabled: true } },
-        text : 'Отправить'
+        block: 'button',
+        mix: { block: 'contact-form', elem: 'button' },
+        text: 'Отправить'
     }
 ]);

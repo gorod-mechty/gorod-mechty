@@ -12,14 +12,14 @@ block(contact-form) {
         line-height: 40px;
 
         box-sizing: inherit;
-        width: calc(50% - 10px);
+        width: 330px;
         height: 40px;
         padding: 0 15px;
 
         border: 1px solid rgb(215, 215, 215);
         border-radius: 3px;
 
-        &:nth-child(2) {
+        mod(first) {
             margin-right: 20px;
         }
     }
@@ -33,19 +33,17 @@ block(contact-form) {
         margin-top: 20px;
         padding: 0 15px;
 
-        resize: none;
-
         border: 1px solid rgb(215, 215, 215);
         border-radius: 3px;
     }
 
     elem(button) {
-        margin-top: 15px;
-
         font-family: inherit;
         font-size: 1rem;
+
         width: 165px;
         height: 40px;
+        margin-top: 15px;
 
         color: rgb(255, 255, 255);
         border: none;
