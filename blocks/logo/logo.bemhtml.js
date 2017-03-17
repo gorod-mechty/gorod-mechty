@@ -1,13 +1,11 @@
 block('logo')(
-    tag()(function() {
-        return this.ctx.url ? 'a' : 'span';
+    tag()(node => {
+        return node.ctx.url ? 'a' : 'span';
     }),
-    attrs()(function() {
+    attrs()(node => {
         var attrs = applyNext() || {};
-        attrs.href = this.ctx.url;
+        attrs.href = node.ctx.url;
         return attrs;
     }),
-    elem('image')(
-        tag()('img')
-    )
+    elem('image').tag()('img')
 );

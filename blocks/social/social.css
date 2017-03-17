@@ -1,4 +1,4 @@
-:block(social) {
+block(social) {
     display: flex;
     justify-content: center;
 
@@ -6,7 +6,7 @@
 
     margin: 0;
 
-    &:elem(link) {
+    elem(link) {
         width: 40px;
         height: 40px;
         margin-right: 12px;

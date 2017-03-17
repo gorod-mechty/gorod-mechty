@@ -1,1 +1,3 @@
-block('page-foot').tag()('footer');
+block('page-foot')(
+    tag()('footer')
+);

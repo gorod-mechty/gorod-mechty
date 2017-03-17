@@ -1,5 +1,5 @@
-block('text-about').elem('photo')(
-    content()(node => {
-        return node.data;
-    })
+block('text-about')(
+    elem('photo')(
+        content()(node => node.data)
+    )
 );

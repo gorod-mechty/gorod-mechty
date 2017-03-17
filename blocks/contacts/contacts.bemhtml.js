@@ -2,13 +2,13 @@ block('contacts')(
     tag()('ul'),
     elem('contact')(
         tag()('li'),
-        content()(function() {
+        content()(node => {
             var url = applyNext();
 
             return {
                 block: 'link',
                 mix: { block: 'contacts', elem: 'link' },
-                url: (this.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url.replace(/ /g, ''),
+                url: (node.elemMods.type === 'phone' ? 'tel' : 'mailto') + ':' + url.replace(/ /g, ''),
                 content: url
             };
         })

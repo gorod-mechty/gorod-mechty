@@ -1,5 +1,4 @@
-block('social').content()(() => {
-    return [
+block('social').content()([
         {
             channel: 'fb',
             title: 'Facebook',
@@ -34,5 +33,5 @@ block('social').content()(() => {
                 content: channel.title
             }
         };
-    });
-});
+    })
+);

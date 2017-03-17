@@ -1,11 +1,11 @@
 block('nav').content()(node => {
     const data = node.data;
 
-    return data.pages.filter(function(item) {
+    return data.pages.filter(item => {
         // Добавляем в навигацию только адреса вида /page/
         // TODO: делать более умную проверку
         return item.url.split('/').length === 3;
-    }).map(function(item) {
+    }).map(item => {
 
         var isCurrent = node.data.page.url === item.url;
 

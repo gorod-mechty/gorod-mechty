@@ -1,6 +1,6 @@
 block('button')(
     tag()('button'),
-    content()(function() {
-        return this.ctx.text;
+    content()(node => {
+        return node.ctx.text;
     })
 );

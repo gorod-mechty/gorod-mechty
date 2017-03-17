@@ -1,4 +1,4 @@
-:block(page-head) {
+block(page-head) {
     display: flex;
     align-items: center;
 

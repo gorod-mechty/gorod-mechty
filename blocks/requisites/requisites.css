@@ -17,7 +17,7 @@ block(requisites) {
     elem(items) {
         display: flex;
         flex-wrap: wrap;
-        flex: 1 1 calc(50% - $margin_block);
+        flex: 1 1 320px;
         justify-content: space-between;
         align-items: baseline;
 
@@ -25,7 +25,7 @@ block(requisites) {
     }
 
     elem(donate) {
-        flex: 1 1 calc(50% - $margin_block);
+        flex: 1 1 320px;
 
         margin-left: $margin_block;
     }

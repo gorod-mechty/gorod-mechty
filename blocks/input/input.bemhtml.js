@@ -1,6 +1,6 @@
 block('input')(
     tag()('input'),
-    attrs()(function() {
-        return { placeholder: this.ctx.placeholder };
+    attrs()(node => {
+        return { placeholder: node.ctx.placeholder };
     })
 );

@@ -1,21 +1,22 @@
-:block(nav) {
+block(nav) {
     font-size: 18px;
 
     display: flex;
     justify-content: flex-end;
+
     margin: 0;
     padding: 0;
 
     list-style: none;
 
-    color: #0ac;
+    color: rgb(0, 170, 204);
 
     elem(item) {
         line-height: 44px;
 
         margin: 0 20px;
 
-        &:mod(current)
+        mod(current)
         {
             color: rgb(26, 175, 93);
             border-bottom: 3px solid rgb(26, 175, 93);
