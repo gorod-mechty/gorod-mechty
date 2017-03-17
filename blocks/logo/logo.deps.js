@@ -1,5 +1,3 @@
 ({
-    shouldDeps: [
-        { elem: 'image' }
-    ]
+    shouldDeps: []
 });

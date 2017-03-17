@@ -21,4 +21,16 @@
             }
         }
     }
+
+    elem(link) {
+        &:link {
+            text-decoration: none;
+
+            color: rgb(73, 166, 227);
+        }
+
+        &:hover {
+            color: rgb(20, 20, 20);
+        }
+}
 }

@@ -3,6 +3,5 @@
         'input',
         'textarea',
         'button',
-        { elem: 'title' }
     ]
 });

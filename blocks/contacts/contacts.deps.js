@@ -1,6 +1,5 @@
 ({
     shouldDeps: [
-        'link',
-        { elem:  'link' }
+        'link'
     ]
 });
