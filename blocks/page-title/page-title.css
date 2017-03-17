@@ -17,4 +17,32 @@ block(page-title) {
 
         background-color: rgba(0, 0, 0, 0.5);
     }
+
+    elem(image) {
+        position: relative;
+        z-index: 1;
+        left: 50%;
+
+        display: block;
+        max-width: 1920px;
+
+        transform: translate(-50%, 0);
+    }
+
+    elem(text) {
+        font-size: 42px;
+
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: 40px;
+
+        width: 100%;
+        max-width: 680px;
+        margin: 0;
+
+        transform: translate(-50%, 0);
+
+        color: white;
+    }
 }

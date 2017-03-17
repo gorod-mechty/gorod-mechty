@@ -5,14 +5,10 @@
     height: 80px;
 
     elem(logo) {
-        flex: 1;
-
         margin: 0 22px 0 15px;
     }
 
     elem(nav) {
-        display: flex;
-        flex: 10;
-        justify-content: flex-end;
+        flex: 1;
     }
 }

@@ -6,5 +6,8 @@ block('logo')(
         var attrs = applyNext() || {};
         attrs.href = this.ctx.url;
         return attrs;
-    })
+    }),
+    elem('image')(
+        tag()('img')
+    )
 );

@@ -1,6 +1,8 @@
 :block(nav) {
     font-size: 18px;
 
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
     padding: 0;
 
@@ -9,9 +11,9 @@
     color: #0ac;
 
     elem(item) {
-        margin: 0 20px;
-
         line-height: 44px;
+
+        margin: 0 20px;
 
         &:mod(current)
         {
