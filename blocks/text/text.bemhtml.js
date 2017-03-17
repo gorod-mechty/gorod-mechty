@@ -1,5 +1,3 @@
 block('text')(
-    elem('p')(
-        tag()('p')
-    )
+    elem('p').tag()('p')
 );
