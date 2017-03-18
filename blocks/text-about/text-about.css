@@ -1,0 +1,44 @@
+block(text-about) {
+    display: flex;
+
+    margin-top: 55px;
+    padding: 20px;
+
+    background-color: rgb(242, 242, 242);
+
+    elem(title) {
+        font-size: 30px;
+
+        margin-bottom: 0;
+    }
+
+    elem(activity) {
+        margin: 0;
+
+        color: rgb(153, 153, 153);
+    }
+
+    elem(text) {
+        padding-top: 0;
+    }
+
+    elem(contacts) {
+        flex-direction: column;
+        justify-content: flex-start;
+
+        margin-top: 25px !important;
+        padding-left: 0;
+    }
+
+    elem(biography) {
+        flex: 1 1 auto;
+        margin-left: 20px;
+    }
+
+    elem(photo) {
+        width: 100px;
+        height: 100px;
+
+        border-radius: 50%;
+    }
+}

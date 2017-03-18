@@ -28,8 +28,8 @@
 
     "mkdirp": "^0.5.1",
 
-    "postcss-nested": "^1.0.0",
-    "rebem-css": "^0.2.0",
+    "pobem": "^1.1.2",
+    "precss": "^1.4.0",
     "rimraf": "^2.5.4"
   },
   "private": true

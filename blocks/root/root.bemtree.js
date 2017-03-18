@@ -1,6 +1,6 @@
 block('root').replace()(node => {
-    var data = node.data = node.ctx.data,
-        title = data.page.url !== '/' ? data.page.title + ' / ' : '';
+    const data = node.data = node.ctx.data;
+    let title = data.page.url !== '/' ? data.page.title + ' / ' : '';
 
     title += data.pages[0].title;
 

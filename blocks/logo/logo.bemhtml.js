@@ -1,10 +1,10 @@
 block('logo')(
-    tag()(function() {
-        return this.ctx.url ? 'a' : 'span';
-    }),
-    attrs()(function() {
-        var attrs = applyNext() || {};
-        attrs.href = this.ctx.url;
+    tag()(node => node.ctx.url ? 'a' : 'span'),
+    attrs()(node => {
+        let attrs = applyNext() || {};
+        attrs.href = node.ctx.url;
+
         return attrs;
-    })
+    }),
+    elem('image').tag()('img')
 );

@@ -1,5 +1,6 @@
 ({
     shouldDeps: [
-        'link'
+        'logo',
+        'nav'
     ]
 });

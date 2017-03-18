@@ -1,0 +1,6 @@
+({
+    shouldDeps: [
+        'contacts',
+        { elem: 'photo' }
+    ]
+});

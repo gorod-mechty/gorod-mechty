@@ -1,9 +1,12 @@
-.page
-{
-    font: 15px Arial, sans-serif;
+block(page) {
+    font: 15px -apple-system, Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
     /*max-width: 1920px;*/
 
     margin: auto;
-    padding: 0 5%;
+    padding: 0;
+
+    elem(head) {
+        padding: 0 150px;
+    }
 }

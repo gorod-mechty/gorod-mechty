@@ -1,6 +1,4 @@
 block('link')(
     tag()('a'),
-    attrs()(function() {
-        return { href: this.ctx.url };
-    })
+    attrs()(node => ({ href: node.ctx.url }))
 );

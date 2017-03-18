@@ -1,4 +1,4 @@
-:block(contacts) {
+block(contacts) {
     display: flex;
     justify-content: center;
 
@@ -6,19 +6,31 @@
 
     list-style: none;
 
-    &:elem(contact) {
+    elem(contact) {
         margin-right: 30px;
 
         &:last-child {
             margin-right: 0;
         }
 
-        &:mod(type phone) {
-            :block(contacts):elem(link) {
+        mod(type phone) {
+            block(contacts):elem(link) {
                 &:link {
                     color: rgb(20, 20, 20);
                 }
             }
+        }
+    }
+
+    elem(link) {
+        &:link {
+            text-decoration: none;
+
+            color: rgb(73, 166, 227);
+        }
+
+        &:hover {
+            color: rgb(20, 20, 20);
         }
     }
 }

@@ -1,1 +1,0 @@
-block('footer').tag()('footer');

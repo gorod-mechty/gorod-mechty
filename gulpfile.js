@@ -39,6 +39,14 @@ gulp.task('static', done => {
     done();
 });
 
+gulp.task('copy:img', done => {
+    gulp.src([
+        'blocks/logo/logo.svg',
+        'content/**/*.jpg'
+    ]).pipe(gulp.dest(OUTPUT_ROOT));
+    done();
+});
+
 gulp.task('render', done => {
     render(done);
 });
@@ -56,7 +64,7 @@ gulp.task('browser-sync', () => {
         middleware: function(req, res, next) {
             if (req.url.match(/svgd/)) {
                 res.setHeader('Content-Type', 'image/svg+xml');
-                res.setHeader('Content-Encoding', 'deflate')
+                res.setHeader('Content-Encoding', 'deflate');
             }
             next();
         }
@@ -80,7 +88,7 @@ gulp.task('watch', () => {
     }));
 });
 
-gulp.task('default', gulp.series('clean', 'prepare', 'enb', 'static', 'render', gulp.parallel('browser-sync', 'watch')));
+gulp.task('default', gulp.series('clean', 'prepare', 'enb', 'static', 'render', 'copy:img', gulp.parallel('browser-sync', 'watch')));
 
 /*
 function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
@@ -124,5 +132,3 @@ function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
 
 //     applyTemplates(page, lang, vinyl.contents.toString('utf8'));
 // }
-
-

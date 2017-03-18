@@ -1,4 +1,4 @@
-block('social').content()(() => [
+block('social').content()([
         {
             channel: 'fb',
             title: 'Facebook',
