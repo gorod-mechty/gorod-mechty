@@ -9,6 +9,8 @@
     "node": ">=4"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
+
     "bem-core": "bem/bem-core#4eaad0943edf1ce827af1630414c596c4be98867",
 
     "browser-sync": "^2.16.0",
@@ -17,8 +19,7 @@
     "enb-bem-techs": "^2.2.1",
     "enb-bemxjst": "^8.0.0",
     "enb-borschik": "^2.4.0",
-    "enb-bundle-postcss": "tadatuta/enb-bundle-postcss",
-    "enb-css": "^1.2.2",
+    "enb-postcss": "eRadu80/enb-postcss",
     "enb-js": "^1.1.0",
     "enb-modules": "^0.3.0",
 
@@ -29,7 +30,9 @@
     "mkdirp": "^0.5.1",
 
     "pobem": "^1.1.2",
+    "postcss-url": "^5.1.2",
     "precss": "^1.4.0",
+    "sugarss": "^0.2.0",
     "rimraf": "^2.5.4"
   },
   "private": true
