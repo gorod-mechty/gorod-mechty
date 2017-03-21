@@ -1,0 +1,27 @@
+block(contacts)
+    display: flex
+    justify-content: center
+
+    margin: 0 0 20px
+
+    list-style: none
+
+    elem(contact)
+        margin-right: 30px
+
+        &:last-child
+            margin-right: 0
+
+        mod(type phone)
+            elem(link)
+                &:link
+                    color: rgb(20, 20, 20) !important
+
+    elem(link)
+        &:link
+            text-decoration: none
+
+            color: rgb(73, 166, 227)
+
+        &:hover
+            color: rgb(20, 20, 20)

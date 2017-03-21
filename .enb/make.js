@@ -7,8 +7,7 @@ var techs = {
         borschik: require('enb-borschik/techs/borschik'),
 
         // css
-        css: require('enb-css/techs/css'),
-        postcss: require('enb-bundle-postcss/techs/enb-bundle-postcss'),
+        postcss: require('enb-postcss/techs/enb-postcss'),
 
         // js
         // browserJs: require('enb-js/techs/browser-js'),
@@ -44,15 +43,9 @@ module.exports = config => {
             [enbBemTechs.deps],
             [enbBemTechs.files],
 
-            // css
-            [techs.css, {
-                target: '?.pre.css'
-            }],
-
             [techs.postcss, {
-                source: '?.pre.css',
-                sourceSuffixes: ['pcss', 'post.css', 'css'],
-                oneOfSourceSuffixes: [['pcss', 'css'], ['post.css', 'css']],
+                sourceSuffixes: ['sss'],
+                parser: require('sugarss'),
                 plugins: [
                     require('precss'),
                     require('pobem'),
