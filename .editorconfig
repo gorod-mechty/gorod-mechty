@@ -18,8 +18,5 @@ indent_size = 4
 [{bower,package}.json]
 indent_size = 2
 
-[*.sss]
-indent_size = 2
-
 [*.md]
 trim_trailing_whitespace = false
