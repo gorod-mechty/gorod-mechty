@@ -1,5 +1,6 @@
 ({
     shouldDeps: [
+        'project-money',
         'text',
         'text-about',
         'requisites',
