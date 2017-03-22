@@ -23,10 +23,11 @@ module.exports = [
         url: '/projects/reconstruction-of-the-city-fountain-on-gogol-street/',
         navItem: 'Проекты',
         title: 'Реконструкция фонтана по ул. Гоголя',
-        titleImage: './projects/square-on-gogol-street/title.jpg',
+        titleImage: './projects/reconstruction-of-the-city-fountain-on-gogol-street/title.jpg',
         state: { text: 'в процессе', mods: { process: true } },
         startDate: 'с 12 октября 2015',
-        source: './projects/square-on-gogol-street/content.bemjson.js',
+        gallery: './projects/reconstruction-of-the-city-fountain-on-gogol-street/gallery',
+        source: './projects/reconstruction-of-the-city-fountain-on-gogol-street/content.bemjson.js',
         type: 'bemjson.js'
     }
 ];

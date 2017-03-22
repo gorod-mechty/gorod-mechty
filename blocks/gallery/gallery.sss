@@ -1,0 +1,36 @@
+block(gallery)
+    margin-top: 35px
+
+    elem(image)
+        max-width: 100%
+
+    elem(image),
+    elem(thumb-img)
+        display: block
+
+    elem(thumbs)
+        display: flex
+
+    elem(thumb-img)
+        overflow: hidden
+
+        max-width: 100px
+        min-height: 75px
+
+        opacity: 0.5
+
+        &:hover
+            cursor: pointer
+
+            opacity: 1
+
+    elem(thumb-item)
+        box-sizing: border-box
+        max-height: 75px
+        margin: 2px 2px 0 0
+
+        mod(active)
+            border: 3px solid rgb(30, 206, 109)
+
+            elem(thumb-img)
+                opacity: 0
