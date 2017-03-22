@@ -1,18 +1,29 @@
 block('page-neck').content()(node => {
     const root = node.data.root;
-    const src = node.data.page.titleImage;
-    const title = node.data.page.title;
+    const page = node.data.page;
 
     return [
         {
             elem: 'text',
-            content: title
+            content: [
+                page.title,
+                page.state && {
+                    block: 'project-state',
+                    mods: page.state.mods,
+                    mix: { block: 'page-neck', elem: 'state' },
+                    content: page.state.text
+                },
+                page.startDate && {
+                    elem: 'start-date',
+                    content: page.startDate
+                },
+            ]
         },
         {
             elem: 'image',
             attrs: {
-                src: `${root}/${src}`,
-                alt: title
+                src: `${root}/${page.titleImage}`,
+                alt: page.title
             }
         }
     ];
