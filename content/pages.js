@@ -27,6 +27,13 @@ module.exports = [
         state: { text: 'в процессе', mods: { process: true } },
         startDate: 'с 12 октября 2015',
         gallery: './projects/reconstruction-of-the-city-fountain-on-gogol-street/gallery',
+        map: {
+            id: 'map',
+            coordinates: '[44.947756, 34.097716]',
+            zoom: 15,
+            width: '100%',
+            height: '320px'
+        },
         source: './projects/reconstruction-of-the-city-fountain-on-gogol-street/content.bemjson.js',
         type: 'bemjson.js'
     }
