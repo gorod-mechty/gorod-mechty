@@ -6,6 +6,7 @@
         'news',
         'text-about',
         'requisites',
-        'contact-form'
+        'contact-form',
+        'map'
     ]
 });
