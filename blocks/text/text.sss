@@ -1,7 +1,16 @@
 block(text)
     padding-top: 15px
 
-    elem(p)
+    elem(p), elem(link)
         line-height: 1.5
 
         margin-top: 25px
+
+    elem(link)
+        &:link
+            text-decoration: none
+
+            color: rgb(44, 151, 222)
+
+        &:hover
+            color: #000
