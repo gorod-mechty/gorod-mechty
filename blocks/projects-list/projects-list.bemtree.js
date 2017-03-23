@@ -6,7 +6,7 @@ block('projects-list').content()(node => {
     return list.map(item => {
         return {
             elem: 'item',
-            url: '',
+            url: url + item.url,
             content: [
                 {
                     block: 'project-state',
