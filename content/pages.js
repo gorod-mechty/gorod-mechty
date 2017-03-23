@@ -17,7 +17,8 @@ module.exports = [
         navItem: 'Проекты',
         title: 'Проекты',
         titleImage: './projects/title.jpg',
-        source: 'Проекты',
+        source: './projects/content.bemjson.js',
+        type: 'bemjson.js'
     },
     {
         url: '/projects/reconstruction-of-the-city-fountain-on-gogol-street/',
