@@ -1,9 +1,15 @@
 block('projects-list').content()(node => {
     const path = require('path');
     const list = require(path.resolve('content/projects/projects'));
-    const url = node.data.root + node.data.page.url;
+    let url = node.data.root + node.data.page.url;
 
-    return list.map(item => {
+    return list.map((item, idx) => {
+        if (node.data.page.url === '/') {
+            url = node.data.root + '/projects/';
+
+            if (idx >= 3) return;
+        }
+
         return {
             elem: 'item',
             url: url + item.url,
