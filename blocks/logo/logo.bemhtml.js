@@ -6,5 +6,13 @@ block('logo')(
 
         return attrs;
     }),
-    elem('image').tag()('img')
+    content()(() => {
+        const fs = require('fs');
+        const elem = 'image';
+
+        return {
+            html: fs.readFileSync('blocks/logo/logo.svg', 'utf8')
+                    .replace(/<svg/, `<svg class="logo__${elem}"`)
+        };
+    })
 );

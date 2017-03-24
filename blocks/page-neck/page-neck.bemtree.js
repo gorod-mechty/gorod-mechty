@@ -17,6 +17,11 @@ block('page-neck').content()(node => {
                     elem: 'start-date',
                     content: page.startDate
                 },
+                page.url === '/' && {
+                    elem: 'link',
+                    url: page.link.url,
+                    content: page.link.text
+                }
             ]
         },
         {
