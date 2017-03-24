@@ -1,8 +1,11 @@
 module.exports = [
     {
         url: '/',
-        title: 'Благотворительный фонд «Город Мечты»',
-        source: 'Главная страница'
+        title: 'Вместе мы сделаем наш город удобным для людей',
+        titleImage: './index/title.jpg',
+        link: { text: 'Я хочу помочь!', url: '' },
+        source: './index/content.bemjson.js',
+        type: 'bemjson.js'
     },
     {
         url: '/about/',

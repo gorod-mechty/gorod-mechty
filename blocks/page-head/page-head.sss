@@ -10,3 +10,21 @@ block(page-head)
 
     elem(nav)
         flex: 1
+
+    mod(index)
+        position: absolute
+        z-index: 2
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+
+        block(nav)
+            elem(link)
+                color: white
+
+                &:hover
+                    color: rgb(33, 233, 123)
+
+        block(logo)
+            fill: white
