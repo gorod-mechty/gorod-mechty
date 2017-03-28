@@ -25,11 +25,10 @@ block('page-neck').content()(node => {
             ]
         },
         {
-            elem: 'image',
-            attrs: {
-                src: `${root}/${page.titleImage}`,
-                alt: page.title
-            }
+            block: 'image',
+            mix: { block: 'projects-list', elem: 'image' },
+            src: `${root}/${page.titleImage}`,
+            alt: page.title
         }
     ];
 });
