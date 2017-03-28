@@ -22,10 +22,10 @@ block('projects-list').content()(node => {
                     content: item.state.text
                 },
                 {
-                    block: 'projects-list',
-                    elem: 'image',
-                    path: url,
-                    data: item.image
+                    block: 'image',
+                    mix: { block: 'projects-list', elem: 'image' },
+                    src: url + item.image.src,
+                    alt: item.image.alt
                 },
                 {
                     block: 'projects-list',
