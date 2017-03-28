@@ -19,8 +19,9 @@
                 block: 'text-about',
                 content: [
                     {
-                        elem: 'photo',
-                        image: './director.jpg',
+                        block: 'image',
+                        mix: { block: 'text-about', elem: 'photo' },
+                        src: './director.jpg',
                         alt: 'Директор'
                     },
                     {

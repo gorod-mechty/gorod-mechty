@@ -11,7 +11,8 @@ block('projects-list').content()(node => {
         }
 
         return {
-            elem: 'item',
+            block: 'link',
+            mix: { block: 'projects-list', elem: 'item' },
             url: url + item.url,
             content: [
                 {
@@ -21,15 +22,18 @@ block('projects-list').content()(node => {
                     content: item.state.text
                 },
                 {
-                    elem: 'image',
-                    path: url,
-                    data: item.image
+                    block: 'image',
+                    mix: { block: 'projects-list', elem: 'image' },
+                    src: url + item.image.src,
+                    alt: item.image.alt
                 },
                 {
+                    block: 'projects-list',
                     elem: 'title',
                     content: item.title
                 },
                 {
+                    block: 'projects-list',
                     elem: 'description',
                     content: item.description
                 }

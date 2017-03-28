@@ -18,18 +18,18 @@ block('page-neck').content()(node => {
                     content: page.startDate
                 },
                 page.url === '/' && {
-                    elem: 'link',
+                    block: 'link',
                     url: page.link.url,
+                    mix: { block: 'page-neck', elem: 'link' },
                     content: page.link.text
                 }
             ]
         },
         {
-            elem: 'image',
-            attrs: {
-                src: `${root}/${page.titleImage}`,
-                alt: page.title
-            }
+            block: 'image',
+            mix: { block: 'projects-list', elem: 'image' },
+            src: `${root}/${page.titleImage}`,
+            alt: page.title
         }
     ];
 });
