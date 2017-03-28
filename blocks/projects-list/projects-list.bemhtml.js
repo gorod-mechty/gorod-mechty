@@ -1,8 +1,4 @@
 block('projects-list')(
-    elem('item')(
-        tag()('a'),
-        attrs()(node => ({ href: node.ctx.url }))
-    ),
     elem('image')(
         tag()('img'),
         attrs()(node => {

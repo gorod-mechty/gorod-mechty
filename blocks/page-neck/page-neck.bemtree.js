@@ -18,8 +18,9 @@ block('page-neck').content()(node => {
                     content: page.startDate
                 },
                 page.url === '/' && {
-                    elem: 'link',
+                    block: 'link',
                     url: page.link.url,
+                    mix: { block: 'page-neck', elem: 'link' },
                     content: page.link.text
                 }
             ]
