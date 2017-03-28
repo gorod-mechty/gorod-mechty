@@ -1,6 +1,6 @@
 ({
     shouldDeps: [
         'link',
-        'project-state'
+        'image'
     ]
 });
