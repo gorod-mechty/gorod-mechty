@@ -6,9 +6,10 @@ block('gallery').content()(node => {
 
     return [
         {
-            elem: 'image',
-            path: url,
-            data: gallery.image
+            block: 'image',
+            mix: { block: 'gallery', elem: 'image' },
+            src: url + gallery.image.src,
+            alt: gallery.image.alt
         },
         {
             elem: 'thumbs',
@@ -20,9 +21,10 @@ block('gallery').content()(node => {
                     })(),
                     content: [
                         {
-                            elem: 'thumb-img',
-                            path: url,
-                            data: data,
+                            block: 'image',
+                            mix: { block: 'gallery', elem: 'thumb-img' },
+                            src: url + data.src,
+                            alt: data.alt
                         }
                     ]
                 };
