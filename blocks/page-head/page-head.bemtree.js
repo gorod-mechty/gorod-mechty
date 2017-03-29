@@ -11,6 +11,14 @@ block('page-head').content()(node => {
         {
             block: 'nav',
             mix: { block: 'page-head', elem: 'nav' },
+        },
+        {
+            elem: 'toggle',
+            content: [
+                {
+                    elem: 'toggle-line'
+                }
+            ]
         }
     ];
 });

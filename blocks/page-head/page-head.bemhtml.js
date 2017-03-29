@@ -1,3 +1,4 @@
 block('page-head')(
-    tag()('header')
+    tag()('header'),
+    elem('toggle-line').tag()('span')
 );
