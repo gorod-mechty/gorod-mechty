@@ -1,6 +1,9 @@
 block(news)
     margin-top: 60px
 
+    @media (max-width: 600px)
+        margin-top: 35px
+
     elem(list)
         display: flex
         flex-wrap: wrap
@@ -12,18 +15,28 @@ block(news)
 
         margin-bottom: 0
 
+        @media (max-width: 600px)
+            font-size: 24px
+
     elem(date)
         font-size: 13px
 
         box-sizing: border-box
         min-width: 25%
+        margin-top: 30px
         padding-right: 15px
 
         color: rgb(153, 153, 153)
+
+        @media (max-width: 600px)
+            &:first-child
+                margin-top: 0
 
     elem(description)
         flex: 1
 
         min-width: 75%
-        margin-top: 30px
         margin-left: 0
+
+        @media (max-width: 600px)
+            flex: 1 1 100%
