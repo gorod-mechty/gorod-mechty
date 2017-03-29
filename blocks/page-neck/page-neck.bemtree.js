@@ -27,7 +27,7 @@ block('page-neck').content()(node => {
         },
         {
             block: 'image',
-            mix: { block: 'projects-list', elem: 'image' },
+            mix: { block: 'page-neck', elem: 'image' },
             src: `${root}/${page.titleImage}`,
             alt: page.title
         }
