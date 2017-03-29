@@ -6,12 +6,15 @@ block(projects-list)
     margin-top: -25px
     padding: 0 150px
 
+    @media (max-width: 600px)
+        padding: 0 20px
+
     elem(item)
         position: relative
 
-        flex: 1 1 320px
+        flex: 1 1 30%
 
-        max-width: 320px
+        max-width: 30%
         margin-top: 50px
 
         text-decoration: none
@@ -21,6 +24,11 @@ block(projects-list)
         &:hover
             elem(title)
                 color: rgb(26, 175, 93)
+
+        @media (max-width: 600px)
+            flex: 1 1 100%
+
+            max-width: 100%
 
     elem(state)
         position: absolute
@@ -38,3 +46,5 @@ block(projects-list)
 
         color: rgb(153, 153, 153)
 
+    elem(image)
+        width: 100%

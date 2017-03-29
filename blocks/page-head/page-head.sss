@@ -5,6 +5,11 @@ block(page-head)
     height: 80px
     padding: 0 150px
 
+    @media (max-width: 600px)
+        position: relative
+
+        padding: 0 20px
+
     elem(logo)
         margin: 0 22px 0 15px
 
@@ -28,3 +33,11 @@ block(page-head)
 
         block(logo)
             fill: white
+
+        @media (max-width: 600px)
+            block(nav)
+                elem(link)
+                    color: #000
+
+            block(logo)
+                fill: #000
