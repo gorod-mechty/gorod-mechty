@@ -19,7 +19,7 @@
     "enb-bem-techs": "^2.2.1",
     "enb-bemxjst": "^8.0.0",
     "enb-borschik": "^2.4.0",
-    "enb-postcss": "eRadu80/enb-postcss",
+    "enb-postcss": "radxene/enb-postcss",
     "enb-js": "^1.1.0",
     "enb-modules": "^0.3.0",
 
