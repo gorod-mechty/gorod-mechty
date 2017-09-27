@@ -5,8 +5,6 @@ const path = require('path');
 const enb = require('enb');
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
-const watch = require('gulp-watch');
-const batch = require('gulp-batch');
 const rimraf = require('rimraf');
 
 const generate = require('./lib/generate');
@@ -18,15 +16,19 @@ const STATIC = 'static';
 const BUNDLE = './bundles/index/index';
 const PAGES = require('./content/pages');
 
-function render(done) {
-    generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT).then(() => {
-        done();
-    });
+async function render(done) {
+    await generate(BUNDLE, PAGES, ROOT, OUTPUT_ROOT);
+    done();
 }
 
-gulp.task('clean', done => rimraf(OUTPUT, done));
+async function enb_make (done) {
+    await enb.make();
+    done();
+}
 
-gulp.task('enb', enb.make);
+gulp.task('enb', enb_make);
+
+gulp.task('clean', done => rimraf(OUTPUT, done));
 
 gulp.task('prepare', done => {
     gulp.src(path.join(STATIC, 'index.html')).pipe(gulp.dest(OUTPUT));
@@ -71,64 +73,43 @@ gulp.task('browser-sync', () => {
     });
 });
 
-gulp.task('watch', () => {
-    // watch changes in blocks and build using enb
-    watch(['blocks/**/*'], batch((event, done) => {
-        enb.make().then(done);
-    }));
+gulp.task('watch', (done) => {
+    gulp.watch('blocks/**/*')
+        .on('all', async (event, path, stats) => {
+            const fit = path.slice(-10);
 
-    // watch changes in final css and js and copy it to output folder
-    watch(BUNDLE + '.min.*', vinyl => {
-        vinyl.pipe(fs.createWriteStream(OUTPUT_ROOT + '/' + vinyl.basename));
-    });
+            await enb_make(done);
 
-    // watch changes in content and bemtree/bemhtml bundles and rebuild pages
-    watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], batch((event, done) => {
-        render(done);
-    }));
+            if (fit !== 'bemtree.js' && fit !== 'bemhtml.js') {
+                gulp.src(`${BUNDLE}.min.*`).pipe(gulp.dest(OUTPUT_ROOT));
+            }
+        });
+
+    gulp.watch(['content/**/*', `${BUNDLE }.bemtree.js`, `${BUNDLE }.bemhtml.js`])
+        .on('all', (event, path, stats) => render(done));
+
+    done();
+
+
+
+
+
+
+
+    // // watch changes in blocks and build using enb
+    // watch(['blocks/**/*'], batch((event, done) => {
+    //     enb.make().then(done);
+    // }));
+
+    // // watch changes in final css and js and copy it to output folder
+    // watch(BUNDLE + '.min.*', vinyl => {
+    //     vinyl.pipe(fs.createWriteStream(OUTPUT_ROOT + '/' + vinyl.basename));
+    // });
+
+    // // watch changes in content and bemtree/bemhtml bundles and rebuild pages
+    // watch(['content/**/*', BUNDLE + '.bemtree.js', BUNDLE + '.bemhtml.js'], batch((event, done) => {
+    //     render(done);
+    // }));
 });
 
 gulp.task('default', gulp.series('clean', 'prepare', 'enb', 'static', 'render', 'copy:img', gulp.parallel('browser-sync', 'watch')));
-
-/*
-function render(bemtree, bemhtml, pages, page, lang, OUTPUT) {
-
-    var renderInner = function(err, content) {
-        var type = page.type || 'md'
-        if (type === 'md') {
-            marked(content, function(err, content) { applyTemplates(bemtree, bemhtml, pages, page, lang, OUTPUT, content) });
-        } else if (type === 'bemjson.js') {
-            applyTemplates(bemtree, bemhtml, pages, page, lang, OUTPUT, bemhtml.apply(vm.runInNewContext(content)));
-        } else {
-            throw "Unknown type";
-        }
-    };
-
-    var source = page.source;
-
-    if (/^http/.test(source)) {
-        request(source, function (err, response, content) {
-            if (!err && response.statusCode == 200)
-                renderInner(err, content);
-        });
-    } else if (/^\.\/(.*)/.test(source)) {
-        // read content from local FS
-        fs.readFile(source, 'utf8', renderInner);
-    } else {
-        // inline content
-        renderInner(null, source);
-    }
-}
-
-*/
-// function html(vinyl) {
-//     if (!vinyl || !vinyl.contents) return;
-
-//     var path = vinyl.path,
-//         re = new RegExp('(.*)\/' + config.rawFolder + '(.*)index\.(.*)\.html$'),
-//         lang = path.replace(re, '$3'),
-//         pageUrl = path.replace(re, '$2'),
-//         page = _.where(pages[lang], { url: pageUrl })[0];
-
-//     applyTemplates(page, lang, vinyl.contents.toString('utf8'));
-// }
